@@ -1,12 +1,12 @@
 from python:3.12
 
 RUN apt update
-RUN pip install natsort
+RUN pip install natsort requests
 RUN apt install ffmpeg -y
 
 WORKDIR /app
 COPY download_all.sh .
-COPY download.sh .
+COPY download.py .
 RUN chmod +x *.sh
 
 # ENTRYPOINT ["echo $0 $1 $@"]

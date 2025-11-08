@@ -3,7 +3,7 @@ if [ -z $1 ]; then echo "No name provided"; echo "usage: sto name [season_number
 
 in=$1
 
-dir="/data/$1"
+dir="/app/$1"
 mkdir -p $dir
 st="staffel-1"
 
@@ -33,8 +33,8 @@ for st in $staffeln; do
 
 
         name=`printf 'episode_%02g.mkv' $(echo $e | cut -f2 -d'-')`
-        echo ./download.sh "https://s.to/serie/stream/$1/$st/$e" "$dir/$1/$staffel/$name"
-        ./download.sh "https://s.to/serie/stream/$1/$st/$e" "$dir/$staffel/$name"
+        echo python download.py "https://s.to/serie/stream/$1/$st/$e" "$dir/$1/$staffel/$name"
+        python download.py "https://s.to/serie/stream/$1/$st/$e" "$dir/$staffel/$name"
     done
 done
 
