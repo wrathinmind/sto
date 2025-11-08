@@ -3,7 +3,7 @@ if [ -z $1 ]; then echo "No name provided"; echo "usage: sto name [season_number
 
 in=$1
 
-dir="/app/$1"
+dir="/data/$1"
 mkdir -p $dir
 st="staffel-1"
 
